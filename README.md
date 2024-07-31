@@ -84,7 +84,19 @@ When clicking on one of the `Hotels`, `Cities` or `Countries` links, the applica
 
 <!-- Write-up/conclusion section -->
 
-_When all the behaviour is implemented, feel free to add some observations or conclusions you like to share in the section_
+#### Client
+
+- Removed the initial client side filtering logic and moved to server
+- Used React Router to support navigation to Hotel, City and Country page
+- Used React Query to simplify fetching/loading logic and UI
+- Added a debounce hook to the search to prevent excessive search request rate
+
+#### API
+
+- Moved the connection to MongoDB outside of the request handler(s)
+- Added 3 more endpoints to retrieve Hotel, City and Country
+- Parallelised the 3 search queries in the /search endpoint
+- Added a single field index to the searched fields 
 
 ### Database structure
 

@@ -19,9 +19,21 @@ const client = new MongoClient(uri);
 try {
   await client.connect();
   const db = client.db();
+
+  db.collection("hotels").createIndex({
+    hotel_name: 1,
+  });
+  db.collection("countries").createIndex({
+    country: 1,
+  });
+  db.collection("cities").createIndex({
+    name: 1,
+  });
+
   await db.collection("cities").insertMany(cities);
   await db.collection("countries").insertMany(countries);
   await db.collection("hotels").insertMany(hotels);
+
 } catch (error) {
   console.error("Error seeding database:", error);
 } finally {
